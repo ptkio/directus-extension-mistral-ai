@@ -56,22 +56,6 @@ const operation: SandboxOperationConfig = {
 		});
 
 		try {
-			log(
-				JSON.stringify({
-					method: 'POST',
-					headers: {
-						Accept: 'application/json',
-						'Content-Type': 'application/json',
-						Authorization: `Bearer ${apiKey}`,
-					},
-					body: JSON.stringify({
-						model: model,
-						maxTokens: maxTokens,
-						messages: aiMessagesFormatted,
-					}),
-				}),
-			);
-
 			const response = await request('https://api.mistral.ai/v1/chat/completions', {
 				method: 'POST',
 				headers: {
