@@ -1,0 +1,66 @@
+{
+	"name": "directus-extension-mistral-ai",
+	"description": "Mistral AI chat API",
+	"icon": "edit_note",
+	"version": "1.1.0",
+	"license": "MIT",
+	"author": {
+		"email": "paul.tecchio@gmail.com",
+		"name": "ptkio"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ptkio/directus-extension-mistral-ai.git"
+	},
+	"keywords": [
+		"directus",
+		"directus-extension",
+		"directus-custom-operation",
+		"mistral",
+		"ai",
+		"chat",
+		"api",
+		"write"
+	],
+	"type": "module",
+	"directus:extension": {
+		"type": "operation",
+		"path": {
+			"app": "app.js",
+			"api": "api.js"
+		},
+		"source": {
+			"app": "src/app.ts",
+			"api": "src/api.ts"
+		},
+		"host": "^10.3.3",
+		"sandbox": {
+			"enabled": true,
+			"requestedScopes": {
+				"log": {},
+				"request": {
+					"methods": ["POST"],
+					"urls": ["https://api.mistral.ai/v1/*"]
+				}
+			}
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "directus-extension build",
+		"dev": "directus-extension build -w --no-minify",
+		"link": "directus-extension link"
+	},
+	"devDependencies": {
+		"@directus/extensions-sdk": "10.3.3",
+		"@types/node": "^20.11.19",
+		"typescript": "^5.3.3",
+		"vue": "^3.4.19"
+	},
+	"dependencies": {
+		"@directus/types": "^11.0.7",
+		"@mistralai/mistralai": "^0.1.3"
+	}
+}
